@@ -1,47 +1,45 @@
 # AI-Powered Network Intrusion Detection System (NIDS)
 
-This repository contains an AI-powered Network Intrusion Detection System (NIDS) designed to identify and classify network traffic patterns. Using a Random Forest Classifier, the system distinguishes between benign (safe) and malicious (attack) traffic. The project features a web-based dashboard for model training, performance evaluation, and manual packet analysis.
+This project is an AI-driven Network Intrusion Detection System (NIDS) that uses **Machine Learning** to classify network traffic and **Generative AI** to provide security insights.
 
+## Overview
+
+The system analyzes network flow data to distinguish between **Benign** traffic and potential **Attacks** (e.g., DDoS). It features a real-time dashboard for training models, simulating traffic, and generating AI-powered analysis for detected threats.
+
+## Key Features
+
+- **Machine Learning Analysis**: Uses a Random Forest Classifier to detect malicious patterns in network traffic.
+- **Interactive Dashboard**: Built with Streamlit for a user-friendly experience.
+- **AI Analyst**: Integrated with **Groq AI (Llama 3.3)** to provide plain-english explanations for detection results.
+- **Traffic Simulator**: Capture and analyze random packets from the dataset to test the system's accuracy.
+
+## Tech Stack
+
+- **Languages**: Python
+- **Frontend**: Streamlit
+- **ML Framework**: Scikit-Learn (Random Forest)
+- **Data Handling**: Pandas, NumPy
+- **Generative AI**: Groq API
+
+## Setup & Installation
+
+1. **Install Dependencies**:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Run the Application**:
+
+   ```bash
+   streamlit run app.py
+   ```
+
+3. **Configure API Key**:
+   To use the AI Analyst feature, obtain a free API key from [Groq Cloud](https://console.groq.com/keys) and enter it in the app's sidebar.
 
 ## Project Structure
 
-The project is organized into a modular architecture to separate the user interface from the core analytical logic:
-
-nids_main.py: The primary entry point for the Streamlit application. It manages the layout, user inputs, and visualizations.
-
-logic.py: Contains the backend functions for synthetic data generation and the machine learning pipeline.
-
-requirements.txt: Lists the necessary Python dependencies for the project.
-
-
-## Features
-
-Synthetic Data Generation: Generates 5,000 samples that mimic the structure of network traffic logs, specifically modeled after the CIC-IDS2017 dataset.
-
-Pattern Recognition: The algorithm is designed to identify attacks based on specific network behaviors, such as high packet counts and short flow durations.
-
-Interactive Control Panel: Users can adjust the training data split percentage and the number of trees in the Random Forest model directly from the sidebar.
-
-Performance Evaluation: Provides real-time metrics including Accuracy and a Confusion Matrix heatmap to visualize true positives and false positives.
-
-Live Traffic Simulator: Includes a manual testing module where users can input flow duration, packet count, and packet length mean to test the model's response.
-
-
-## Installation and Usage
-
-### Prerequisites
-   
-Ensure you have Python installed. You can install the required dependencies using the provided requirements file: 
-
-pip install -r requirements.txt
-
-### Running the Application
-
-To launch the dashboard, run the following command in your terminal:
-
-streamlit run nids_main.py
-
-
-## Technical Implementation
-
-The system utilizes the Scikit-Learn library for the Random Forest Classifier. Data manipulation is handled by Pandas and NumPy, while Seaborn and Matplotlib are used for data visualization. The model is stored in the Streamlit session state to allow for persistent use across the dashboard without the need for frequent retraining.
+- `app.py`: The main application file containing the UI and logic.
+- `requirements.txt`: List of necessary Python libraries.
+- `Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv`: The dataset used for training and simulation.
